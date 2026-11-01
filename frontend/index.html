@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NotiEase — Your Notices, Your Way</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#about" class="nav-link">Why NotiEase</a>
+        <a href="#" class="brand">NotiEase</a>
+        <a href="#try-it" class="try-link">Try it ↗</a>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-title">
+                <h1>YOUR<br>NOTICES<span>,</span></h1>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="orbit"></div>
+                    <div class="paper">
+                        <div class="paper-fold"></div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="sparkle">✦</div>
+                </div>
+
+                <h1 class="way">YOUR WAY</h1>
+            </div>
+
+            <div class="hero-bottom">
+                <div>
+                    <p class="eyebrow">ABOUT NOTIEASE</p>
+                    <h3>What we do</h3>
+                </div>
+
+                <div class="hero-description">
+                    <p>Complex college notices,<br>made clear and actionable.</p>
+                    <a href="#try-it" class="pill-button">Try it <span>→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features" id="how-it-works">
+            <p class="section-kicker">LESS CONFUSION</p>
+            <h2>MORE CLARITY</h2>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="icon-art calendar-art">
+                        <div class="calendar-top"></div>
+                        <div class="calendar-grid">
+                            <i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                        </div>
+                        <div class="circle-mark"></div>
+                    </div>
+                    <span class="feature-label">Deadlines</span>
+                </article>
+
+                <article class="feature-card">
+                    <div class="icon-art checklist-art">
+                        <div class="check-row"><b>✓</b><i></i></div>
+                        <div class="check-row"><b>✓</b><i></i></div>
+                        <div class="check-row"><b>✓</b><i></i></div>
+                        <div class="check-badge">✓</div>
+                    </div>
+                    <span class="feature-label">Required actions</span>
+                </article>
+
+                <article class="feature-card">
+                    <div class="icon-art details-art">
+                        <div class="detail-paper">
+                            <i></i><i></i><i></i><i></i>
+                        </div>
+                        <div class="magnifier"></div>
+                    </div>
+                    <span class="feature-label">Important details</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about-section" id="about">
+            <div class="about-copy">
+                <p class="eyebrow">A LITTLE LESS DECODING</p>
+                <h2>MAKE EVERY NOTICE<br>MAKE SENSE.</h2>
+                <div class="pink-line"></div>
+
+                <p class="about-text">
+                    College announcements shouldn't feel like a puzzle.
+                    NotiEase uses natural language processing to simplify
+                    formal notices and highlight the information students
+                    need — so you can stay informed, take action, and
+                    focus on what matters.
+                </p>
+
+                <a href="#try-it" class="pill-button">Let's simplify <span>→</span></a>
+            </div>
+
+            <div class="collage" aria-hidden="true">
+                <div class="collage-circle"></div>
+                <div class="metal-shape">〰</div>
+
+                <div class="notice-sheet sheet-one">
+                    <span></span><span></span><span></span><span></span>
+                    <div class="mini-check">✓</div>
+                </div>
+
+                <div class="notice-sheet sheet-two">
+                    <div class="mini-calendar">
+                        <b></b><b></b><b></b>
+                        <b></b><b></b><b></b>
+                        <b></b><b></b><b></b>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="photo-shape"></div>
+                    <p>CLARITY<br>OVER COMPLEXITY</p>
+                </div>
+
+                <div class="pink-note">one notice<br>at a time ♡</div>
+            </div>
+        </section>
+
+        <!-- NOTICE INPUT -->
+        <section class="processor" id="try-it">
+            <div class="processor-heading">
+                <div class="document-icon">▤</div>
+                <div>
+                    <p class="eyebrow">YOUR TURN</p>
+                    <h2>Let's decode that notice.</h2>
+                </div>
+            </div>
+
+            <label for="notice">PASTE YOUR COLLEGE NOTICE</label>
+
+            <textarea
+                id="notice"
+                rows="7"
+                placeholder="Paste your college notice here..."
+                required
+            ></textarea>
+
+            <div class="processor-bottom">
+                <p>We'll find the important details for you.</p>
+                <button id="simplifyBtn" type="button" onclick="simplifyNotice()">
+                    Simplify notice <span>→</span>
+                </button>
+            </div>
+
+            <p id="status" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- RESULTS -->
+        <section id="results" class="results-section" hidden>
+            <div class="results-heading">
+                <p class="eyebrow">YOUR NOTICE, DECODED</p>
+                <h2>Here's what matters.</h2>
+            </div>
+
+            <article class="summary-card">
+                <p class="eyebrow">THE SHORT VERSION</p>
+                <p id="summary"></p>
+            </article>
+
+            <div class="result-grid">
+                <article class="result-card">
+                    <div class="result-icon">◷</div>
+                    <h3>Event dates</h3>
+                    <ul id="eventDates"></ul>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-icon">⌛</div>
+                    <h3>Deadlines</h3>
+                    <ul id="deadlines"></ul>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-icon">₹</div>
+                    <h3>Amounts</h3>
+                    <ul id="amounts"></ul>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-icon">◇</div>
+                    <h3>Eligibility</h3>
+                    <ul id="eligibility"></ul>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-icon">✓</div>
+                    <h3>What to do</h3>
+                    <ul id="actions"></ul>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-icon">!</div>
+                    <h3>Don't miss this</h3>
+                    <ul id="consequences"></ul>
+                </article>
+            </div>
+
+            <p class="disclaimer">
+                NotiEase helps you understand notices. Always verify dates,
+                fees and requirements against the original college notice.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="#" class="brand">NotiEase<span>.</span></a>
+        <p>College communication, made clearer.</p>
+        <a href="#try-it">Make it make sense ↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
