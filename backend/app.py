@@ -1,10 +1,15 @@
-from flask import Flask, request, jsonify
+from pathlib import Path
+
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
 from information_extraction import extract_information
 
 app = Flask(__name__)
 CORS(app)
+
+# Frontend files are in the sibling "frontend" folder.
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 
 
 def clean_heading(text):
@@ -45,10 +50,12 @@ def build_short_version(information):
 
 @app.route("/", methods=["GET"])
 def home():
-    return jsonify({
-        "message": "Welcome to NotiEase API!",
-        "status": "running",
-    })
+    return send_from_directory(FRONTEND_DIR, "index.html")
+
+
+@app.route("/<path:filename>", methods=["GET"])
+def frontend_files(filename):
+    return send_from_directory(FRONTEND_DIR, filename)
 
 
 @app.route("/process", methods=["POST"])
